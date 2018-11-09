@@ -1,0 +1,12 @@
+- name: "Installing additional spackages"
+  package: pkg={{ item }} state=installed
+  with_items:
+  - git
+  - vim
+  - tree
+  - man
+
+- name: "Install the meld rpm from a remote repo"
+  yum:
+    name: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/m/meld-3.16.4-2.el7.noarch.rpm
+    state: present

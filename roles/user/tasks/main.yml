@@ -1,0 +1,35 @@
+- name: Append ip alias in .bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: 'alias ip="/sbin/ip -c"'
+
+- name: Set history size in .bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: 'HISTSIZE=10000'
+
+- name: Set history file size in .bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: 'HISTFILESIZE=10000'
+
+- name: Copy .vimrc
+  copy:
+    src: ~/.vimrc
+    dest: ~/.vimrc
+
+- name: Copy .vim/ (using rsync to be faster)
+  synchronize:
+    src: ~/.vim/
+    dest: ~/.vim/
+
+- name: Copy .gitconfig
+  copy:
+    src: ~/.gitconfig
+    dest: ~/.gitconfig
+
+- name: Copy .ssh/config
+  copy:
+    src: ~/.ssh/config
+    dest: ~/.ssh/config
+    mode: 0644

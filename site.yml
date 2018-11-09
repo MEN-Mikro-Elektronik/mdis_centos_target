@@ -1,0 +1,20 @@
+---
+# This playbook prepares a MDIS test target running CentOS
+
+- name: Apply common configuration 
+  hosts: all
+  remote_user: root
+  roles:
+  - { role: common, tags: ['common'] }
+
+- name: Apply user configuration to user root 
+  hosts: all
+  remote_user: root
+  roles:
+  - { role: user, tags: ['user'] }
+
+- name: Apply user configuration to user men 
+  hosts: all
+  remote_user: men
+  roles:
+  - { role: user, tags: ['user'] }
