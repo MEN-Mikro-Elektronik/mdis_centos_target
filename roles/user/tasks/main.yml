@@ -33,3 +33,10 @@
     src: ~/.ssh/config
     dest: ~/.ssh/config
     mode: 0644
+
+- name: "Add user men to wheel group (to support sudo)"
+  user:
+    name: men
+    groups: wheel
+    append: yes
+  when: ansible_user == "root"
