@@ -11,3 +11,7 @@
   yum:
     name: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/m/meld-3.16.4-2.el7.noarch.rpm
     state: present
+
+- name: set X11UseLocalhost no in sshd_config
+  lineinfile: dest=/etc/ssh/sshd_config regexp="X11UseLocalhost "
+    line="X11UseLocalhost no"
