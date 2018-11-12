@@ -5,6 +5,7 @@
   - vim
   - tree
   - man
+  - i2c-tools
 
 - name: "Install the meld rpm from a remote repo"
   yum:
