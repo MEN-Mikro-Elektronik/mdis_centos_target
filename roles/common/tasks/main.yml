@@ -6,6 +6,8 @@
   - tree
   - man
   - i2c-tools
+  - minicom
+  - screen
 
 - name: "Install the meld rpm from a remote repo"
   yum:
