@@ -8,6 +8,7 @@
   - i2c-tools
   - minicom
   - screen
+  - python-devel
 
 - name: "Install the meld rpm from a remote repo"
   yum:
@@ -28,4 +29,12 @@
   args:
     creates: /root/gotop
   notify: [ 'Copy gotop' ]
+
+- name: "Install psutil with pip"
+  pip:
+    name: psutil
+
+- name: "Install glances with pip"
+  pip:
+    name: glances
 
