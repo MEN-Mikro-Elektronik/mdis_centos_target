@@ -1,0 +1,6 @@
+- name: "Copy gotop"
+  copy:
+    remote_src: yes
+    src: /root/gotop
+    dest: /usr/bin
+    mode: 0755

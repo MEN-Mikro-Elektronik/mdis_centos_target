@@ -17,3 +17,15 @@
 - name: set X11UseLocalhost no in sshd_config
   lineinfile: dest=/etc/ssh/sshd_config regexp="X11UseLocalhost "
     line="X11UseLocalhost no"
+
+- name: "Install gotop monitoring tool"
+  git:
+    repo: 'https://github.com/cjbassi/gotop.git'
+    dest: /tmp/gotop
+
+- name: "Download gotop binary to /root"
+  shell: /tmp/gotop/scripts/download.sh
+  args:
+    creates: /root/gotop
+  notify: [ 'Copy gotop' ]
+
