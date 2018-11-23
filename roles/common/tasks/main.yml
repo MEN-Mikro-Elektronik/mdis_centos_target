@@ -22,10 +22,10 @@
 - name: "Install gotop monitoring tool"
   git:
     repo: 'https://github.com/cjbassi/gotop.git'
-    dest: /tmp/gotop
+    dest: /root/toolsrc/gotop
 
 - name: "Download gotop binary to /root"
-  shell: /tmp/gotop/scripts/download.sh
+  shell: /root/toolsrc/gotop/scripts/download.sh
   args:
     creates: /root/gotop
   notify: [ 'Copy gotop' ]
