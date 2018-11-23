@@ -19,7 +19,7 @@
   lineinfile: dest=/etc/ssh/sshd_config regexp="X11UseLocalhost "
     line="X11UseLocalhost no"
 
-- name: "Install gotop monitoring tool"
+- name: "GIT clone gotop monitoring tool"
   git:
     repo: 'https://github.com/cjbassi/gotop.git'
     dest: /root/toolsrc/gotop
@@ -37,4 +37,15 @@
 - name: "Install glances with pip"
   pip:
     name: glances
+
+- name: "GIT clone linux-serial-test tool"
+  git:
+    repo: 'https://github.com/MEN-Mikro-Elektronik/linux-serial-test.git'
+    dest: /root/toolsrc/linux-serial-test
+
+- name: "Compile linux-serial-test tool"
+  shell: gcc linux-serial-test.c -o /usr/bin/linux-serial-test
+  args:
+    chdir: /root/toolsrc/linux-serial-test
+    creates: /usr/bin/linux-serial-test
 
