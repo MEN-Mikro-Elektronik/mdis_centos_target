@@ -1,3 +1,4 @@
+Note: Use centos8 branch for CentOS 8! 
 
 # CentOS 7 Installation
 
