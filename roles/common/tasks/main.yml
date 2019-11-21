@@ -1,6 +1,12 @@
-- name: "Installing additional spackages"
+- name: "Ensure chronyd is active"
+  service:
+    name: chronyd
+    state: started
+
+- name: "Installing additional packages"
   package: pkg={{ item }} state=installed
   with_items:
+  - epel-release
   - git
   - vim
   - tree
@@ -8,12 +14,13 @@
   - i2c-tools
   - minicom
   - screen
-  - python-devel
+  - python3,platform-python-devel,python3-libselinux
 
-- name: "Install the meld rpm from a remote repo"
-  yum:
-    name: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/m/meld-3.16.4-2.el7.noarch.rpm
-    state: present
+# todo: fix meld installation
+#- name: "Install the meld rpm from a remote repo"
+#  yum:
+#    name: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/m/meld-3.16.4-2.el7.noarch.rpm
+#    state: present
 
 - name: set X11UseLocalhost no in sshd_config
   lineinfile: dest=/etc/ssh/sshd_config regexp="X11UseLocalhost "
