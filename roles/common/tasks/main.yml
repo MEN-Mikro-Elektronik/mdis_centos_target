@@ -15,6 +15,7 @@
   - minicom
   - screen
   - python3,platform-python-devel,python3-libselinux
+  - elfutils-libelf-devel
 
 # todo: fix meld installation
 #- name: "Install the meld rpm from a remote repo"
